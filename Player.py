@@ -1,6 +1,7 @@
 import pygame
-class Player:
-    def __init__(self, x, y, width, height):
+class Player(pygame.sprite.Sprite):
+    def __init__(self, x, y, width, height,):
+        pygame.sprite.Sprite.__init__(self)
         self.x = x
         self.y = y
         self.width = width
