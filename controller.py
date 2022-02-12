@@ -1,5 +1,5 @@
 import pygame
-def eventHandler(keys,display_scroll,SPEED,non_player_sprites):
+def controller(keys,display_scroll,SPEED,non_player_sprites):
     # Event Handler
     if keys[pygame.K_a]:
         display_scroll[0] -= SPEED

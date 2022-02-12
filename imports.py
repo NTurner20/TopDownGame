@@ -1,12 +1,11 @@
 # All imports here
-
 import sys
 import pygame
 import random
-from eventHandler import eventHandler
+from controller import controller
 from Player import Player
 from PlayerBullet import PlayerBullet
-from Enemy import Enemy
+from Enemy import *
 from groups import *
 from global_vars import *
 from addSprite import *

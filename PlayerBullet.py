@@ -12,13 +12,13 @@ class PlayerBullet(pygame.sprite.Sprite):
         self.x_vel = math.cos(self.angle)*self.speed
         self.y_vel = math.sin(self.angle)*self.speed
         self.start_time = GLOBAL_TIME
-        self.kill_time = 15
+        self.kill_time = 17
         self.radius = 5
     def main(self,display):
         self.x -= int(self.x_vel)
         self.y -= int(self.y_vel)
         pygame.draw.circle(display, (0,0,0),(self.x,self.y),self.radius)
-    def update(self,GLOBAL_TIME):
+    def update(self,GLOBAL_TIME,player):
         if GLOBAL_TIME > self.start_time + self.kill_time:
             self.kill()       
     
