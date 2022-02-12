@@ -1,4 +1,4 @@
-import pygame
+from imports import pygame
 def controller(keys,display_scroll,SPEED,non_player_sprites):
     # Event Handler
     if keys[pygame.K_a]:

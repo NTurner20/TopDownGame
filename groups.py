@@ -1,6 +1,5 @@
 # All groups initialized here
-
-import pygame
+from imports import pygame
 
 non_player_sprites = pygame.sprite.Group()
 player_bullets = pygame.sprite.Group()

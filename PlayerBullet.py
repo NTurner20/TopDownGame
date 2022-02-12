@@ -1,5 +1,5 @@
-import pygame
-import math
+from imports import pygame, math
+
 class PlayerBullet(pygame.sprite.Sprite):
     def __init__(self,x,y,mouse_x,mouse_y,GLOBAL_TIME):
         pygame.sprite.Sprite.__init__(self)
@@ -12,7 +12,7 @@ class PlayerBullet(pygame.sprite.Sprite):
         self.x_vel = math.cos(self.angle)*self.speed
         self.y_vel = math.sin(self.angle)*self.speed
         self.start_time = GLOBAL_TIME
-        self.kill_time = 17
+        self.kill_time = 20
         self.radius = 5
     def main(self,display):
         self.x -= int(self.x_vel)

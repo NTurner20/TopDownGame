@@ -1,7 +1,5 @@
-import pygame
+from imports import pygame, math, random
 from groups import player_bullets, enemies
-import math
-import random
 from addSprite import *
 class Enemy(pygame.sprite.Sprite):
     def __init__(self,x,y):
