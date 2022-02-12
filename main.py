@@ -1,24 +1,22 @@
-import sys
-from eventHandler import pygame
-from eventHandler import eventHandler
-from Player import Player
-from PlayerBullet import PlayerBullet
-
-SPEED = 5
-GLOBAL_TIME = 0
+from imports import *
 
 pygame.init()
 
 display = pygame.display.set_mode((800,600))
 clock = pygame.time.Clock()
+
     
 player = Player(400,300,32,32)
 
-display_scroll = [0,0]
-player_bullets = pygame.sprite.Group()
-all_sprites = pygame.sprite.Group()
-all_sprites.add(player)
+# Enemy
+E1 = Enemy(random.randrange(200,400),random.randrange(100,200))
 
+display_scroll = [0,0]
+
+all_sprites.add(player)
+addEnemy(E1)
+
+# Game loop
 while True:
     dt = clock.tick()
     GLOBAL_TIME += dt
@@ -34,17 +32,16 @@ while True:
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
                 bullet = PlayerBullet(player.x,player.y,mouse_x,mouse_y,GLOBAL_TIME)
-                player_bullets.add(bullet)
-                all_sprites.add(bullet)
+                addBullet(bullet)
     keys = pygame.key.get_pressed()
-    eventHandler(keys,display_scroll,SPEED,player_bullets)
+    eventHandler(keys,display_scroll,SPEED,non_player_sprites)
     pygame.draw.rect(display,(255,255,255),(100-display_scroll[0],100-display_scroll[1],16,16))
         
     player.main(display)
     
-    for bullet in player_bullets:
-        bullet.main(display)
-        bullet.update(GLOBAL_TIME)
+    for sprite in non_player_sprites:
+        sprite.main(display)
+        sprite.update(GLOBAL_TIME)
     
     clock.tick(60)
     pygame.display.update()

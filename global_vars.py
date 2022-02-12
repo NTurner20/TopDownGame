@@ -1,0 +1,2 @@
+SPEED = 5
+GLOBAL_TIME = 0
