@@ -1,7 +1,8 @@
-import pygame
 import sys
 import math
+from eventHandler import pygame
 from eventHandler import eventHandler
+from Player import Player
 
 SPEED = 5
 GLOBAL_TIME = 0
@@ -11,18 +12,6 @@ pygame.init()
 
 display = pygame.display.set_mode((800,600))
 clock = pygame.time.Clock()
-
-# Player class
-
-class Player:
-    def __init__(self, x, y, width, height):
-        self.x = x
-        self.y = y
-        self.width = width
-        self.height = height
-    def main(self, display):
-        pygame.draw.rect(display,(255,0,0),(self.x,self.y,self.width,self.height))
-
 
 class PlayerBullet:
     def __init__(self,x,y,mouse_x,mouse_y):
