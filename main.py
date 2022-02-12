@@ -1,6 +1,7 @@
 import pygame
 import sys
 import math
+from eventHandler import eventHandler
 
 SPEED = 5
 GLOBAL_TIME = 0
@@ -64,27 +65,11 @@ while True:
                 player_bullets.append(PlayerBullet(player.x,player.y,mouse_x,mouse_y))
     
     keys = pygame.key.get_pressed()
-    
+    eventHandler(keys,display_scroll,SPEED,player_bullets)
     pygame.draw.rect(display,(255,255,255),(100-display_scroll[0],100-display_scroll[1],16,16))
     
     
-    # Event Handler
-    if keys[pygame.K_a]:
-        display_scroll[0] -= SPEED
-        for bullet in player_bullets:
-            bullet.x += SPEED
-    if keys[pygame.K_d]:
-        display_scroll[0] += SPEED
-        for bullet in player_bullets:
-            bullet.x -= SPEED    
-    if keys[pygame.K_w]:
-        display_scroll[1] -= SPEED
-        for bullet in player_bullets:
-            bullet.y += SPEED
-    if keys[pygame.K_s]:
-        display_scroll[1] += SPEED
-        for bullet in player_bullets:
-            bullet.y -= SPEED
+    
         
     player.main(display)
     
