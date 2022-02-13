@@ -8,6 +8,7 @@ class Player(pygame.sprite.Sprite):
         self.y = y
         self.width = width
         self.height = height
+        self.gameOver = False
     def main(self, display):
         pygame.draw.rect(display,(255,0,0),(self.x,self.y,self.width,self.height))
     def update(self,GLOBAL_TIME,player):
