@@ -20,6 +20,7 @@ class Enemy(pygame.sprite.Sprite):
         self.r_value = 128
         self.g_value = clamp(30 + 30*self.speed**1.7,0,255)
         self.b_value = 100
+        self.r_value2 = 0
         if self.radius > 30:
             self.hits = 2
             self.r_value2 = clamp(148 + self.radius/2,0,255)

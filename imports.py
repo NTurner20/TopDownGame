@@ -11,3 +11,4 @@ from Enemy import *
 from groups import *
 from global_vars import *
 from addSprite import *
+from shotgun import *

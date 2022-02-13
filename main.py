@@ -35,8 +35,10 @@ while True:
             if event.button == 1:
                 bullet = PlayerBullet(player.x,player.y,mouse_x,mouse_y,GLOBAL_TIME)
                 addBullet(bullet)
+            if event.button == 3:
+                shotgun(player, mouse_x,mouse_y,GLOBAL_TIME)
                 
-    # Movement dw
+    # Movement 
     keys = pygame.key.get_pressed()
     controller(keys,display_scroll,SPEED,non_player_sprites)
     # Enemy generation and movement 
@@ -63,6 +65,9 @@ while True:
     
     p = f.render("Score: " + str(player.points),True,(255,255,255))
     display.blit(p,(600,10))
+    
+    a = f.render("Ammo: " + str(player.ammo),True,(255,255,255))
+    display.blit(a,(100,10))
     
     # Game Over
     gameOver = player.gameOver
