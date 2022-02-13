@@ -38,11 +38,13 @@ while True:
             if event.button == 3:
                 shotgun(player, mouse_x,mouse_y,GLOBAL_TIME)
                 
-    # Movement 
+    # Movement ddd
     keys = pygame.key.get_pressed()
     controller(keys,display_scroll,SPEED,non_player_sprites)
     # Enemy generation and movement 
     generateEnemies(level,player)    
+    for ammos in ammo:
+        ammos.main(display)
     for sprite in all_sprites:
         sprite.main(display)
         sprite.update(GLOBAL_TIME,player)
@@ -72,6 +74,7 @@ while True:
     # Game Over
     gameOver = player.gameOver
     if gameOver:
+        time.sleep(2)
         for sprites in all_sprites:
             sprites.kill()
             display.fill((0,0,0))
@@ -82,7 +85,7 @@ while True:
             g = f.render("Level: " + str(level),True,(255,255,255))
             display.blit(g,(320,300))
             pygame.display.update()
-        time.sleep(4)
+        time.sleep(1)
         pygame.quit()
         sys.exit()
     

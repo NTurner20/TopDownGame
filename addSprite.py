@@ -20,3 +20,8 @@ def addEnemy(sprite):
 def addShotgun(sprite):
     addBullet(sprite)
     shotgun_bullets.add(sprite)
+
+def addAmmo(sprite):
+    ammo.add(sprite)
+    non_player_sprites.add(sprite)
+    all_sprites.add(sprite)

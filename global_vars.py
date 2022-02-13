@@ -1,2 +1,2 @@
-SPEED = 5
+SPEED = 6
 GLOBAL_TIME = 0
