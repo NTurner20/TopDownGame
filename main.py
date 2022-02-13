@@ -1,6 +1,11 @@
 from imports import *
-
+from playsound import playsound
+import threading
+file = 'futuristic-timelapse-11951.mp3'
 pygame.init()
+threading.Thread(target=playsound, args=(file,), daemon=True).start()
+
+# Music (Currently Broken)
 
 display = pygame.display.set_mode((800,600))
 clock = pygame.time.Clock()
@@ -13,7 +18,6 @@ timeSinceLevelStart = 0
 timeToNextLevel = 300
 
 display_scroll = [0,0]
-
 all_sprites.add(player)
 
 # Game loop
@@ -26,6 +30,7 @@ while True:
     
     mouse_x,mouse_y = pygame.mouse.get_pos()
     
+    pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_CROSSHAIR)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
@@ -54,7 +59,7 @@ while True:
     
    
     
-    # Score and timer rendering
+    # HUD
     
     if timeSinceLevelStart >= timeToNextLevel:
         level += 1
@@ -63,13 +68,13 @@ while True:
     
     f = pygame.font.SysFont("Verdana",20)
     g = f.render("Level: " + str(level),True,(255,255,255))
-    display.blit(g,(400,10))
+    display.blit(g,(350,10))
     
     p = f.render("Score: " + str(player.points),True,(255,255,255))
-    display.blit(p,(600,10))
+    display.blit(p,(690,10))
     
     a = f.render("Ammo: " + str(player.ammo),True,(255,255,255))
-    display.blit(a,(100,10))
+    display.blit(a,(10,10))
     
     # Game Over
     gameOver = player.gameOver

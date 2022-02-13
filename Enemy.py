@@ -18,6 +18,7 @@ class Enemy(pygame.sprite.Sprite):
         self.radius = random.randrange(17,55)
         self.speed = 30/self.radius + level/5
         self.r_value = 128
+        self.level = level
         self.g_value = clamp(30 + 30*self.speed**1.7,0,255)
         self.b_value = 100
         self.r_value2 = 0
@@ -27,11 +28,12 @@ class Enemy(pygame.sprite.Sprite):
         else:
             self.hits = 1
     def main(self,display):
+        # Draw Circle(s)
         pygame.draw.circle(display,color = (self.r_value,self.g_value,self.b_value),center = (self.x,self.y),radius = self.radius)
         if self.radius > 30:
             pygame.draw.circle(display,color = (self.r_value2,self.g_value,self.b_value),center = (self.x,self.y),radius = self.radius/2)
     def spawnAmmo(self,x,y,player):
-        if random.randint(0,1):
+        if random.randint(0,4) == 1:
             a = Ammo(x,y,player)
             addAmmo(a)
     def update(self,GLOBAL_TIME,player):
@@ -49,7 +51,7 @@ class Enemy(pygame.sprite.Sprite):
                     bullet.kill()
                     player.points += 1
                     self.radius /= 2
-                    self.speed = 30/self.radius
+                    self.speed = 30/self.radius + self.level/5
                     self.r_value = self.r_value2
         # Detect Player Collision
         if math.sqrt((self.x - (player.x+16))**2 + (self.y - (player.y+16))**2) <= self.radius + 16:

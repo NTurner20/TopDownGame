@@ -11,6 +11,7 @@ def shotgun(player,mouse_x,mouse_y,GLOBAL_TIME):
             p.angle += i*radians(20)
             p.speed += 3
             p.r_value = 255
+            p.kill_time += 10
             p.x_vel = math.cos(p.angle)*p.speed
             p.y_vel = math.sin(p.angle)*p.speed    
             addShotgun(p)
