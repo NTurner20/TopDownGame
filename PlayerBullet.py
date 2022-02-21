@@ -7,12 +7,12 @@ class PlayerBullet(pygame.sprite.Sprite):
         self.y =y
         self.mouse_x = mouse_x
         self.mouse_y = mouse_y
-        self.speed = 15
+        self.speed = 20
         self.angle = math.atan2(y - mouse_y, x-mouse_x)
         self.x_vel = math.cos(self.angle)*self.speed
         self.y_vel = math.sin(self.angle)*self.speed
         self.start_time = GLOBAL_TIME
-        self.kill_time = 20
+        self.kill_time = 40
         self.radius = 5
         self.r_value = 0
     def main(self,display):
