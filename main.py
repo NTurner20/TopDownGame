@@ -1,12 +1,15 @@
-from pygame import KEYDOWN
 from imports import *
-from playsound import playsound
-import threading
+# import os
+from pygame import KEYDOWN
+
+# os.add_dll_directory('C:\Windows\System32\libmpg123-0.dll')
+# from playsound import playsound
+# import threading
 file = 'futuristic-timelapse-11951.mp3'
 pygame.init()
 
 # Music (Currently Broken)
-# pygame.mixer.music.load(file)
+pygame.mixer.music.load(file)
     # Threading, temp fix
 # threading.Thread(target=playsound, args=(file,), daemon=True).start()
 
@@ -24,6 +27,7 @@ def gameInit(menu = True):
         main(clock,player,display)
 # Game loop
 def main(clock,player,display):
+    pygame.mixer.music.play(loops = 1) # BG Music
     gameOver = False
     timeToNextLevel = 300
     display_scroll = [0,0]
